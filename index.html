@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js-file.js" defer></script>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>My Library</header>
+    <div class="main">
+        <div class="buttonContainer">
+            <button type="submit" id="showPopup" onclick="openPopup()">Add book</button>
+            <div class="popup">
+                <h1>Add your book</h1>
+                <form action="" class="form" id="myForm">
+                    <label for="title">Title</label>
+                    <input type="text" required id="title" name="title" placeholder="Title">
+                    <label for="author">Author</label>
+                    <input type="text" required id="author" name="author" placeholder=Author>
+                    <label for="pages">Pages</label>
+                    <input type="number" required id="pages" name="pages" placeholder="Number of pages">
+                    <div class="buttons">
+                        <label for="read">read</label>
+                        <input type="radio" id="read" name="status" value="read" required>
+                        <label for="notRead">not read</label>
+                        <input type="radio" id="notRead" name="status" value="notRead" required>
+                    </div>
+                    <div class="buttons">
+                        <input type="submit"></button>
+                        <button onclick="hidePopup()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="container">
+        </div>
+    </div>
+</body>
+</html>
