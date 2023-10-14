@@ -1,18 +1,23 @@
 const myLibrary = []
 
-function Book(title, author, pages, status) {
-  this.title = title
-  this.author = author
-  this.pages = pages
-  this.status = status
-  if (status == 'read') {
-    string = ' read.'
+class Book {
+  constructor(title, author, pages, status) {
+    this.title = title
+    this.author = author
+    this.pages = pages
+    this.status
   }
-  else {
-    string = ' not read yet.'
+  get getTitle() {
+    return this.title
   }
-  this.saytitle = function() {
-    return title + ' by ' + author + ',' + pages + ' pages' + ',' + string
+  get getAuthor() {
+    return this.author
+  }
+  get getPages() {
+    return this.pages
+  }
+  get getStatus() {
+    return this.status
   }
 }
 
@@ -58,14 +63,13 @@ document.getElementById("myForm").addEventListener("submit", function (e) {
   const author = formData.get("author");
   const pages = formData.get("pages") + ' pages';
   const status = formData.get("status");
-  const book1 = [];
-  book1.push(title, author, pages, status);
-  myLibrary.push(book1)
+  let book = new Book(title, author, pages, status);
+  myLibrary.push(book);
 
   const card = document.createElement('div');
   for (let i = 0; i < 3; i ++) {
     const p = document.createElement('p');
-    p.textContent = `${book1[i]}`;
+    p.textContent = `${book.getTitle}`;
     card.appendChild(p);
   }
   const statusBtn = document.createElement('button');
@@ -91,9 +95,28 @@ document.getElementById("myForm").addEventListener("submit", function (e) {
 
 
 for (let i in myLibrary) {
-  console.log(myLibrary[i])
-  const bk = document.createElement('div')
-  bk.textContent = `${myLibrary[i]}`
+  console.log(myLibrary[i].getTitle)
+  const bk = document.createElement('div');
+  for (let i = 0; i < 3; i ++) {
+    const p = document.createElement('p');
+    p.textContent = `${book.getTitle}`;
+    card.appendChild(p);
+  }
+  const statusBtn = document.createElement('button');
+  if (status === 'read') {
+    statusBtn.textContent = 'read';
+  }
+  else {
+    statusBtn.textContent = 'not read';
+  }
+  statusBtn.classList.add(status);
+  statusBtn.addEventListener('click', switchColor);
+  const remove = document.createElement('button');
+  remove.textContent = 'Remove';
+  remove.addEventListener('click', removeCard);
+  card.appendChild(statusBtn);
+  card.appendChild(remove);
+  bk.textContent = `${myLibrary[i].getTitle}`
   let container = document.querySelector('.container')
   container.appendChild(bk)
 }
